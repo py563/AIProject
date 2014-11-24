@@ -24,4 +24,3 @@ def getValue(object_id, question_id):
         return db.select('data', vars=locals(), where=where)[0].value
     except IndexError:
         return None
-
