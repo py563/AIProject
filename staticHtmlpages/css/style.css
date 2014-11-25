@@ -1,0 +1,25 @@
+body{
+  background-color: #FAEBD7;
+}
+.headInfo{
+  text-align: center;
+}
+.headInfo span {
+ font-size:  70px;
+ font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia,serif;  
+}
+.despInfo {
+margin-left:150px;
+padding:2px;
+}
+.startbutton {
+border-color:transparent;
+background-image:url(./images/whitebutton.jpg);
+text-align:center;
+margin-left:450px;
+}
+body img{
+  float: right;
+  position:inherit;
+}
+
