@@ -48,4 +48,39 @@ width: 150px;
 background-color:#89C7D4;
 }
 
+.centerform label{
+    
+margin-left: 250px;
+
+margin-bottom: 2px;
+
+}
+
+.centerform input{
+
+margin-left : 250px;
+
+width: 60%;
+
+height: 50px;
+
+margin-bottom: 2px;
+
+}
+
+.centerform button{
+
+padding: 10px;
+
+margin-bottom: 10px;
+
+margin-left: 500px;
+
+margin-right: 5px;
+
+width: 150px;
+
+background-color:#89C7D4;
+
+}
 
