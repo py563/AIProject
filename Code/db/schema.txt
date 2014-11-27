@@ -1,9 +1,47 @@
-Create Table CharacterSet(
+
+/* Schema used */
+
+CREATE TABLE CharacterSet (
+  CID integer PRIMARY KEY,
+  Name text NOT NULL,
+  addDate date,
+  Guesses integer,
+  RGuess integer
+);
+
+CREATE TABLE attributeValue (
+  CS_ID integer,
+  Q_ID integer,
+  value integer
+);
+
+CREATE TABLE questionDB (
+  QID integer PRIMARY KEY,
+  QText tiny text NOT NULL,
+  addDate date,
+  lastAsked
+);
+
+/*
+CREATE TABLE CharacterSet(
 CID VARCHAR2(5) PRIMARY KEY,
 Name VARCHAR2(30) NOT NULL,
 Added_On Date,
-Guesses int(3),
-RGuess int(3)
+Guesses INT(3),
+RGuess INT(3)
+);
+
+CREATE TABLE QuestionDB(
+QID VARCHAR2(5) PRIMARY KEY,
+QTEXT TINY TEXT NOT NULL,
+Added_On DATE,
+Last_Asked DATE,
+);
+
+CREATE TABLE AttributeValue(
+CS_ID VARCHAR2(5),
+Q_ID VARCHAR2(5),
+value INT(3)
 );
 
 CREATE TABLE CHARACTER_DETAILS(
@@ -13,14 +51,6 @@ Characters_Play Text,
 ExtraInfo TINY TEXT,
 FOREIGN KEY (CID) REFRENCES CharacterSet(CID)
 );
-
-CREATE TABLE Question_DB(
-QID VARCHAR2(5) PRIMARY KEY,
-QTEXT TINY TEXT NOT NULL,
-Added_On DATE,
-Last_Asked DATE,
-);
-
 
 CREATE TABLE OPTION_SCORE(
 OID int(2) PRIMARY KEY,
@@ -38,3 +68,5 @@ FORIEGN KEY (QID, NEXTQID) REFRENCES Question_DB(QID),
 FORIEGN KEY (OID) REFRENCES OPTION_SCORE(OID),
 PRIMARY KEY (QID, OID)
 );
+
+*/
