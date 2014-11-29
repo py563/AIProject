@@ -1,0 +1,86 @@
+body{
+  background-color: #FAEBD7;
+}
+.headInfo{
+  text-align: center;
+  color: #89C7D4;
+}
+.headInfo span {
+ font-size:  50px;
+ font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia,serif;  
+}
+.despInfo {
+margin-left:150px;
+padding:2px;
+}
+.startbutton {
+border-color:transparent;
+background-image:url(.\images\whitebutton.jpg);
+text-align:center;
+margin-left:450px;
+background-color:#89C7D4;
+}
+body img{
+  float: right;
+  position:inherit;
+}
+.centertext img{
+  float: left;
+  height: 200px;
+  width: 200px;
+}
+#qtext {
+  margin-left : 250px;
+  background-color: #F0FFFF;
+  width: 60%;
+  height: 50px;
+}
+#qoptions{
+  margin-left : 375px;
+}
+#qoptions button{
+padding: 10px;
+background-image: url(.\images\whitebutton.jpg);
+margin-bottom: 20px;
+margin-left: 50px;
+margin-right: 50px;
+width: 150px;
+background-color:#89C7D4;
+}
+
+.centerform label{
+    
+margin-left: 250px;
+
+margin-bottom: 2px;
+
+}
+
+.centerform input{
+
+margin-left : 250px;
+
+width: 60%;
+
+height: 50px;
+
+margin-bottom: 2px;
+
+}
+
+.centerform button{
+
+padding: 10px;
+
+margin-bottom: 10px;
+
+margin-left: 500px;
+
+margin-right: 5px;
+
+width: 150px;
+
+background-color:#89C7D4;
+
+}
+
