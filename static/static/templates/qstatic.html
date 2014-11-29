@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>start page</title>
-<link type="text/css" rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
-<!-- Start your code here -->
-<div>  <p class="headInfo"> <span>Guess Who</span> <br> 
-Version of 20 Questions more like Akinator Web Genie. </p>
-</div>
-  <div class="centertext">
-    <img src="/static/images/linda.jpg"/>
-    <p id="qtext">
-question text
-    </p>
-    <p id="qoptions">
-        <button type="submit" name="Yes">Yes</button>
-        <button type="submit" name="No">No</button><br/>
-        <button type="submit" name="M1">May be</button>
-        <button type="submit" name="M1"> Don't Know</button>
-    </p>
-  </div>
-  <!-- End your code here -->
-<script type="text/javascript" src="js/script.js"></script>
-</body>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Guess Who</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+      
+    <link href="/static/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+          <p class="lead">
+          <div class="centertext">
+            <p id="qtext"> question text </p>
+            <p id="answers">
+                <button class="btn btn-lg btn-success" type="submit" name="Yes">Yes</button>
+                <button class="btn btn-lg btn-success"type="submit" name="No">No</button><br/>
+                <button class="btn btn-lg btn-success" type="submit" name="M1">Maybe</button>
+                <button class="btn btn-lg btn-success"type="submit" name="M1"> Don't Know</button>
+            </p>
+          </div>
+      </div>
+  </body>
 </html>

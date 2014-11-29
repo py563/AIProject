@@ -84,3 +84,8 @@ background-color:#89C7D4;
 
 }
 
+.image{
+  display: inline-block;
+  padding-left: 20%;
+  vertical-align: middle;
+}
