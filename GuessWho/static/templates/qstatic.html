@@ -21,15 +21,15 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-          <p class="lead">
+        <p class="lead">
           <div class="centertext">
-            {{qtext}}
+            <p>{{qtext}}</p>
             <form method='POST' action=''>
                 {% csrf_token %}
-                <button class="btn btn-lg btn-success" type="submit" name="Yes">Yes</button>
-                <button class="btn btn-lg btn-success" type="submit" name="No">No</button><br/>
-                <button class="btn btn-lg btn-success" type="submit" name="M1">Maybe</button>
-                <button class="btn btn-lg btn-success" type="submit" name="M1">Don't Know</button>              
+                <button class="btn btn-md btn-success" type="submit" name="Yes">Yes</button>
+                <button class="btn btn-md btn-success" type="submit" name="No">No</button>
+                <button class="btn btn-md btn-success" type="submit" name="M1">Maybe</button>
+                <button class="btn btn-md btn-success" type="submit" name="M1">Don't Know</button>              
             </form>
           </div>
       </div>

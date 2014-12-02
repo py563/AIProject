@@ -10,6 +10,10 @@
   vertical-align: middle;
 }
 
-#answers{
-  line-height: 3;
+.centertext{
+  font-size: 21px;
+}
+
+.btn{
+  border-radius: 10px;
 }
