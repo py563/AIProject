@@ -1,5 +1,9 @@
-from game import models
+from game.models import Characterset
+from game.models import Attributevalue
+from game.models import Questiondb
+
 import random, math
+
 
 
 
@@ -21,7 +25,7 @@ def loader(value):
     
 def InitialQuestion():
     
-    initialQ = "Is your character real?"
+    initialQ = list(Questiondb.objects.filter(qid=1))
     
     return initialQ
 
@@ -30,3 +34,9 @@ def decisionTree():
     
     
     return tree
+
+def updateFrequency():
+
+    
+
+    return

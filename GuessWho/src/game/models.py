@@ -17,7 +17,12 @@ class Characterset(models.Model):
     name = models.TextField(db_column='Name')
     addDate = models.DateField(db_column='addDate', blank=True, null=True) 
     guesses = models.IntegerField(db_column='Guesses', blank=True, null=True) 
-    rguess = models.IntegerField(db_column='RGuess', blank=True, null=True) 
+    rguess = models.IntegerField(db_column='RGuess', blank=True, null=True)
+    
+    def __unicode__(self):
+        
+        return self.name
+    
     class Meta:
         managed = False
         db_table = 'CharacterSet'
@@ -27,7 +32,12 @@ class Questiondb(models.Model):
     qtext = models.TextField(db_column='QText')
     freq = models.IntegerField(db_column='freq')
     addDate = models.DateField(db_column='addDate', blank=True, null=True) 
-    lastasked = models.DateField(db_column='lastAsked', blank=True) 
+    lastasked = models.DateField(db_column='lastAsked', blank=True)
+    
+    def __str__(self):
+        
+        return self.qtext
+    
     class Meta:
         managed = False
         db_table = 'questionDB'
@@ -36,6 +46,11 @@ class Attributevalue(models.Model):
     cs_id = models.IntegerField(db_column='CS_ID', blank=True, null=True) 
     q_id = models.IntegerField(db_column='Q_ID', blank=True, null=True)
     value = models.IntegerField(blank=True, null=True)
+    
+    def __unicode__(self):
+        
+        return self.value
+    
     class Meta:
         managed = False
         db_table = 'attributeValue'
