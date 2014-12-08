@@ -1,0 +1,36 @@
+
+.img-div{
+  display: inline-block;
+  padding-left: 20%;
+}
+
+.description{
+  display: inline-block;
+  padding-left: 0%;
+  vertical-align: middle;
+}
+
+.centertext{
+  font-size: 21px;
+}
+
+.btn{
+  border-radius: 10px;
+}
+
+.container{
+  margin-top: 50px;
+}
+.centerform label{
+  position: relative;
+  left: 150px;
+  width: 200px;
+}
+.centerform input{
+  position: relative;
+  left: 360px;
+}
+.centerform button{
+  position: relative;
+  left: 450px;
+}

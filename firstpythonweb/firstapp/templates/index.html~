@@ -1,0 +1,15 @@
+<table border=2>
+<tr>
+<td>Bookid</td>
+<td>Author</td>
+<td>Title</td>
+</tr>
+{% for book in booklist %}
+  <tr>
+  <td>{{book.bookid}}</td>
+  <td>{{book.author}}</td>
+  <td>{{book.title}}</td>
+</tr>
+{% endfor %}
+</table>
+
