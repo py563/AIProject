@@ -27,8 +27,8 @@
       <div class="jumbotron">
         <p class="lead">
           <div class="centertext">
-            <p>{{QAsk.QText}}</p>
-            <form method='POST' action=''>
+            <p>{{QAsk}}</p>
+            <form method='POST' action='{% url "guessWho" %}'>
                 {% csrf_token %}
                 <button class="btn btn-md btn-success" type="submit" name="Yes">Yes</button>
                 <button class="btn btn-md btn-success" type="submit" name="No">No</button>
@@ -37,5 +37,6 @@
             </form>
           </div>
       </div>
+       <p>Questions Asked : {{counter}} </p>
   </body>
 </html>

@@ -2,33 +2,35 @@ from models import CharacterSet
 from models import Attributevalue
 from models import QuestionDB
 import random, math
-
-class DbFunctions():
-    questions = QuestionDB.objects.all()
+questions = QuestionDB.objects.all()
+class DbFunctions(object):
     
-    def __init__(self):
-        for i in [0,len(questions)]:
-            self.key='Q'+str(i)
-        
-    def initialQuestion():
-        intialQ = questions[0].QText
-        return initialQ
-    
-    def loader(value):
+    def initialQuestion(self):
+        return questions[0].QText
+   
+    def loader(self,value,count):
         if value == 1:
           #chooseNext(,1)  
-	  qtext = AskQuestion(random.randint(0,11))
+	  self.qtext = self.AskQuestion(count)
         elif value == -1:
-          qtext = AskQuestion(random.randint(0,11))
-        return qtext
+          self.qtext = self.AskQuestion(count)
+        return self.qtext
     
-    def AskQuestion(best): 
+    def AskQuestion(self,best):
+        #if 
         initialQ = QuestionDB.objects.all()[best].QText
         return initialQ
 
 class AnswerGuess():
     def guess():
         return "Evan Moreira"
+
+
+def getCharacters():
+    names = []
+    for actor in CharacterSet.objects.all():
+        names.append(actor.Name)
+    return names
 
 
 def decisionTree():

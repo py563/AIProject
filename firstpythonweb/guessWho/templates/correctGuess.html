@@ -27,16 +27,10 @@
       <div class="jumbotron">
         <p class="lead">
           <div class="centertext">
-            <p>{{QAsk}}</p>
-            <form method='POST' action='{% url "guessWho" %}'>
-                {% csrf_token %}
-                <button class="btn btn-md btn-success" type="submit" name="Yes">Yes</button>
-                <button class="btn btn-md btn-success" type="submit" name="No">No</button>
-                <button class="btn btn-md btn-success" type="submit" name="M1">Maybe</button>
-                <button class="btn btn-md btn-success" type="submit" name="M1">Don't Know</button>              
-            </form>
+            <p> Thanks for playing game </p>
+            <a class="btn btn-lg btn-success" href='{% url "home" %}' role="button">Wish to Play Again Click here</a></p>
           </div>
-      </div>
-       <p>Questions Asked : {{counter}} </p>
+  </div>
+  </div>
   </body>
 </html>

@@ -2,27 +2,33 @@ from models import CharacterSet
 from models import Attributevalue
 from models import QuestionDB
 import random, math
-
-
-def InitialQuestion():
-    initialQ = QuestionDB.objects.all()[0].QText
-    return initialQ
-
-def loader(value):
-    if value == 'start':
-          qtext = InitialQuestion()
-    elif value == 1:
-          qtext = AskQuestion(random.randint(0,11))
-    elif value == -1:
-          qtext = AskQuestion(random.randint(0,11))
-    return qtext
+questions = QuestionDB.objects.all()
+class DbFunctions(object):
     
-
-def AskQuestion(best):
-    initialQ = "Answer"
-    if best < 9: 
+    def initialQuestion(self):
+        return questions[0].QText
+   
+    def loader(self,value,count):
+        if value == 1:
+          #chooseNext(,1)  
+	  self.qtext = self.AskQuestion(count)
+        elif value == -1:
+          self.qtext = self.AskQuestion(count)
+        return self.qtext
+    
+    def AskQuestion(self,best):
+        #if 
         initialQ = QuestionDB.objects.all()[best].QText
-    return initialQ
+        return initialQ
+
+class AnswerGuess():
+    def guess():
+        return "Evan Moreira"
+
+def getCharacters():
+    for actor in CharacterSet.objects.all()
+        names.append(actor.Name)
+    return names
 
 
 def decisionTree():

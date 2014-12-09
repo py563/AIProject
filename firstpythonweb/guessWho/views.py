@@ -1,9 +1,11 @@
 
 from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
 from django.template import context
-
+#from django.http import HttpResponse
+#import gamelogic
 from gamelogic import DbFunctions
 from gamelogic import AnswerGuess
+from gamelogic import getCharacters
 
 
 from models import CharacterSet
@@ -12,7 +14,8 @@ from models import QuestionDB
 # Create your views here.
 
 def home(request):
-    #gamesession = request.session() 
+    request.session['Qcount'] = -1
+    request.session['Characters'] = getCharacters()
     return render_to_response("indexgame.html")
 
 '''def reset_game():
@@ -20,29 +23,30 @@ def home(request):
       session.kill()
 '''
 def startgame(request):
-    question = DbFunctions.initialQuestion() #type here code for selecting a random question
-    return render_to_response("qstatic.html", {'QAsk':question}, context_instance=RequestContext(request))
+    question = DbFunctions().initialQuestion() #type here code for selecting a random question
+    if not 'initial_questions' in request.session :
+       request.session['initial_questions'] = question
+    request.session['Qcount'] += 1
+    return render_to_response("qstatic.html", {'QAsk':question,'counter':request.session['Qcount']}, context_instance=RequestContext(request))
     
 def guessWho(request):
    ACTIONS = (('Yes', 1),('No', -1))     
    for key,value in ACTIONS:
         if key in request.POST:
-            question = Dbfunctions.loader(value)
-   if question !="Answer":
-       return render_to_response("qstatic.html", {'QAsk':question}, context_instance=RequestContext(request))
+            request.session['Qcount'] += 1
+            count=request.session['Qcount']
+            responseString = DbFunctions().loader(value,count)
+   if count > 7 :
+       return render_to_response("AddCharacter.html", locals(), context_instance=RequestContext(request))
+   elif responseString not in request.session['Characters']:
+       return render_to_response("qstatic.html", {'QAsk':responseString,'counter':count}, context_instance=RequestContext(request))
    else :
-       return render_to_response("AnswerPage.html",{'Guess':question}, context_instance=RequestContext(request))
+       return render_to_response("AnswerPage.html",{'Guess':responseString,'counter':count}, context_instance=RequestContext(request))
 
-    
-def AnswerPage(request):
-    guess = AnswerGuess.guess()
-    return render_to_response("AnswerPage.html",{'Guess':guess},context_instance=RequestContext(request))
     
 def addCharacter(request):
     return render_to_response("AddCharacter.html", locals(), context_instance=RequestContext(request))
 
-def question(request):
-    qtext = Questiondb.objects.all()
-
-def CharacterSet(request):
-    Name = CharacterSet.objects.all()
+def correctGuess(request):
+    return render_to_response("correctGuess.html", locals(), context_instance=RequestContext(request))
+    

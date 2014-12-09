@@ -27,8 +27,14 @@
       <div class="jumbotron">
         <p class="lead">
           <div class="centertext">
-            <p>{{Guess}}</p>
+            <p>The Person Your are thinking is : {{Guess}}</p>
+            <p>Did I guess 
+               <form method='POST' action='{% url "correctGuess" %}'>{% csrf_token %}
+		<button class="btn btn-md btn-success" type="submit" name="Correct">Correct</button></form>
+	       <form method='POST' action='{% url "AddCharacter" %}'>{% csrf_token %}
+		<button class="btn btn-md btn-success" type="submit" name="wrong">Wrong</button></form>
           </div>
+      </div>
       </div>
   </body>
 </html>

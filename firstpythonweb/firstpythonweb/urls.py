@@ -11,6 +11,9 @@ urlpatterns = patterns('',
     url(r'^AddCharacter/','guessWho.views.addCharacter',name='AddCharacter'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^guessWho/$', 'guessWho.views.guessWho', name='guessWho'),
+    url(r'^correctGuess/','guessWho.views.correctGuess',name='correctGuess'),
+    #url(r'^wrongGuess/','guessWho.views.wrongGuess',name='wrongGuess'),    
 )
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

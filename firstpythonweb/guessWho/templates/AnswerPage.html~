@@ -27,16 +27,13 @@
       <div class="jumbotron">
         <p class="lead">
           <div class="centertext">
-            <p>{{QAsk}}</p>
-            <form method='POST' action='{% url "guessWho" %}'>
-                {% csrf_token %}
-                <button class="btn btn-md btn-success" type="submit" name="Yes">Yes</button>
-                <button class="btn btn-md btn-success" type="submit" name="No">No</button>
-                <button class="btn btn-md btn-success" type="submit" name="M1">Maybe</button>
-                <button class="btn btn-md btn-success" type="submit" name="M1">Don't Know</button>              
-            </form>
+            <p>The Person Your are thinking is : {{Guess}}</p>
+            <p>Did I guess 
+               <form method='POST' action='{% url "correctGuess" %}'>{% csrf_token %}
+		<button class="btn btn-md btn-success" type="submit" name="Correct">Correct</button></form>
+	       <form method='POST' action='{% url "AddCharacter" %}'>{% csrf_token %}
+		<button class="btn btn-md btn-success" type="submit" name="wrong">Wrong</button></form>
           </div>
       </div>
-       <p>Questions Asked : {{counter}} </p>
   </body>
 </html>
