@@ -14,8 +14,20 @@
     <div class="container">
         <div class="jumbotron">
           <div class="description">
-              <h1>Guess Who</h1>
-              <p class="lead">Similar to 20 Questions and Akinator Web Genie. </br>
+              <h1>Add Character</h1>
+              <form>
+                <label> Character Name: </label> <input class="Addname" type="text" name="Cname"/><br/>
+                <label> Famous For:     </label> <input class="Famousfor" type="text" name="famous"/><br/>
+                <label> Franchises:     </label><input class="Franchise" type="text" name="franchise"/><br/>
+                <button class="btn btn-lg btn-success" type="submit" name="add"
+                        style="margin-left: 130px;
+                               margin-top: 5px;
+                               padding-right: 13px;
+                               width: 148px;
+                               height: 42px;
+                               padding-left: 13px;">
+                  <span> Add Character </span></button>
+              </form>
               
           </div>
           
@@ -23,16 +35,5 @@
               <img class="image" src="/static/images/linda.jpg">
           </div>
         </div>
-  <div class="centerform">
-    <form>
-      <label>Enter Name: </label> <input type="text" name="Cname"/><br/>
-      <label>Famous For: </label> <input type="text" name="famous"/><br/>
-      <label>Associated with Franchises:</label><input type="text" name="franchise"/><br/>
-      <label> Extra Helpful Information: </label> <input type="text" name="extra"/><br/>
-      <button type="submit" name="add"><span> Add Character </span></button>
-    </form>
-  </div>
-  <!-- End your code here -->
-<script type="text/javascript" src="./static/js/script.js"></script>
 </body>
 </html>

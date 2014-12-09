@@ -38,9 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs',
     'firstapp',
     'guessWho',
-    'django.contrib.admindocs',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,7 +66,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pythondemodb',
         'USER':'root',
-        'PASSWORD':'M27P02Y91haps',
+        'PASSWORD':'',
         'HOST':'',
         'PORT':'',
     }
