@@ -20,9 +20,13 @@ def loader(value):
 
 def AskQuestion(best):
     initialQ = "Answer"
-    if best < 9: 
+    if best < 1: 
         initialQ = QuestionDB.objects.all()[best].QText
     return initialQ
+
+def guess():
+    
+    return "Evan Moreira"
 
 
 def decisionTree():

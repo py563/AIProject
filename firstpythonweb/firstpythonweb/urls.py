@@ -7,7 +7,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'guessWho.views.home',name='home'),
-    #url(r'^index/', 'firstapp.views.index' name='index'),
     url(r'^startgame/$', 'guessWho.views.startgame', name='startgame'),
     url(r'^AddCharacter/','guessWho.views.addCharacter',name='AddCharacter'),
     url(r'^admin/', include(admin.site.urls)),
