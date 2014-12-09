@@ -11,14 +11,15 @@ Guess Who is simplified version of 20 questions and Akinator Web Genie. The answ
 !!Screenshot
 %width=600px% Attach:homePageScreenShot.png
 
-!!Concepts Demonstrated
-The AI theory used in the game was not covered in class. Guess Who uses a decision tree. A decision tree is a tree in which each branch node represents a choice between a number of  alternatives, and each leaf node represents a decision. In this case, each question asked by the game is a branch node and the answer of either yes or no is a attribute value of that question. After 20 questions, the leaf node is the character guessed by the algorithm.   
+(You may attach a PNG, GIF, or JPG file.  Please note the @@Attach:@@ syntax for doing this.  After you save the wiki page, you will see the @@Attach:@@ link with a blue triangle.  Click on the link, and then you will be brought to a page where you can upload the attachment. After you upload the attachment, the link goes away and you see the image instead.)
 
+!!Concepts Demonstrated
+The AI theory used in the game was not covered in class. Guess Who uses a decision tree  
 
 
 !!Innovation
 
-Decision trees are extremely use full and have many different applications. It shows how computers can make decisions and come to a conclusive answer much fast than a humans.  
+Describe what is innovative about your project.  
 
 !!Technology Used Block Diagram
 
