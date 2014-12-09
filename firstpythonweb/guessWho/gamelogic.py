@@ -3,30 +3,32 @@ from models import Attributevalue
 from models import QuestionDB
 import random, math
 
-
-def InitialQuestion():
-    initialQ = QuestionDB.objects.all()[0].QText
-    return initialQ
-
-def loader(value):
-    if value == 'start':
-          qtext = InitialQuestion()
-    elif value == 1:
-          qtext = AskQuestion(random.randint(0,11))
-    elif value == -1:
-          qtext = AskQuestion(random.randint(0,11))
-    return qtext
+class DbFunctions():
+    questions = QuestionDB.objects.all()
     
-
-def AskQuestion(best):
-    initialQ = "Answer"
-    if best < 1: 
+    def __init__(self):
+        for i in [0,len(questions)]:
+            self.key='Q'+str(i)
+        
+    def initialQuestion():
+        intialQ = questions[0].QText
+        return initialQ
+    
+    def loader(value):
+        if value == 1:
+          #chooseNext(,1)  
+	  qtext = AskQuestion(random.randint(0,11))
+        elif value == -1:
+          qtext = AskQuestion(random.randint(0,11))
+        return qtext
+    
+    def AskQuestion(best): 
         initialQ = QuestionDB.objects.all()[best].QText
-    return initialQ
+        return initialQ
 
-def guess():
-    
-    return "Evan Moreira"
+class AnswerGuess():
+    def guess():
+        return "Evan Moreira"
 
 
 def decisionTree():

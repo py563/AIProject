@@ -26,8 +26,6 @@ class Attributevalue(models.Model):
     entropy = models.IntegerField(blank=True,null=True)
     Opvalue = models.IntegerField(blank=True,null=True)
 
-    def __unicode__(self):
-        return self.value
     
 class questionLog(models.Model):
     GameID = models.IntegerField(primary_key=True)
