@@ -19,19 +19,17 @@ class QuestionDB(models.Model):
     
     def __str__(self):
         return self.QText
+    def __unicode(self):
+        return self.QID
     
 class Attributevalue(models.Model):
-    CID = models.ForeignKey(CharacterSet) 
-    QID = models.ForeignKey(QuestionDB)
+    CID =  models.IntegerField()
+    QID =  models.IntegerField()
     entropy = models.IntegerField(blank=True,null=True)
     Opvalue = models.IntegerField(blank=True,null=True)
 
     
 class questionLog(models.Model):
     GameID = models.IntegerField(primary_key=True)
-    StID = models.ForeignKey(QuestionDB)
-    StVal = models.IntegerField()
-    CurrQid = models.IntegerField()
-    OpVal = models.IntegerField()
-    NextQid = models.IntegerField()
+    Qdata = models.TextField(blank=True,null=True)
     End = models.CharField(max_length=10)

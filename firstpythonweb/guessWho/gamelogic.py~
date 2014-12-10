@@ -3,33 +3,58 @@ from models import Attributevalue
 from models import QuestionDB
 import random, math
 questions = QuestionDB.objects.all()
+attrList=Attributevalue.objects.all()
+actors=CharacterSet.objects.all()
 class DbFunctions(object):
     
     def initialQuestion(self):
-        return questions[0].QText
+        return questions[0]
    
-    def loader(self,value,count):
-        if value == 1:
-          #chooseNext(,1)  
-	  self.qtext = self.AskQuestion(count)
-        elif value == -1:
-          self.qtext = self.AskQuestion(count)
-        return self.qtext
+    def loader(self,value,actList1,curr):
+        chooseNext=curr
+        currQActList = getPossibleCharacter(curr,value)
+        for item in actList1:
+	  for thing in currQActList:
+            if(item.CID==thing.CID):
+              item.entropy+=1
+        self.qtext = self.AskQuestion(chooseNext)
+        return self.qtext,actList1
     
     def AskQuestion(self,best):
         #if 
-        initialQ = QuestionDB.objects.all()[best].QText
+        initialQ = QuestionDB.objects.all()[best]
         return initialQ
 
 class AnswerGuess():
-    def guess():
-        return "Evan Moreira"
+    def guess(self,actList2):
+        maxvalue=-11
+        ansID=0
+        for item in actList2:
+            if(maxvalue ==-11):
+                ansID=item.Cid
+                maxvalue=item.entropy
+            elif (maxvalue<item.entropy):
+                ansID=item.Cid
+                maxvalue=item.entropy
+            else:
+                pass
+        return actors[ansID].Name
+
+#returns all the character names
 
 def getCharacters():
-    for actor in CharacterSet.objects.all()
+    names = []
+    for actor in actors:
         names.append(actor.Name)
     return names
+#returns all possible characters in Attribute List for given Question
 
+def getPossibleCharacter(quesId,option):
+    posActList = []
+    for item in attrList:
+        if (item.QID == quesId) and (item.Opvalue==option):
+            posActList.append(item)
+    return posActList
 
 def decisionTree():
     
