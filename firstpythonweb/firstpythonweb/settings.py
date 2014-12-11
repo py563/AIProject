@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'firstpythonweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pythondemodb',
+        'NAME': 'aiproject',
         'USER':'root',
         'PASSWORD':'M27P02Y91haps',
         'HOST':'',

@@ -23,12 +23,11 @@ class QuestionDB(models.Model):
         return self.QID
     
 class Attributevalue(models.Model):
-    CID =  models.IntegerField()
-    QID =  models.IntegerField()
-    entropy = models.IntegerField(blank=True,null=True)
+    CID = models.ForeignKey(CharacterSet) 
+    QID = models.ForeignKey(QuestionDB)
     Opvalue = models.IntegerField(blank=True,null=True)
+    entropy = models.IntegerField(blank=True,null=True)
 
-    
 class questionLog(models.Model):
     GameID = models.IntegerField(primary_key=True)
     Qdata = models.TextField(blank=True,null=True)

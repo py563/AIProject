@@ -2,17 +2,18 @@ from models import CharacterSet
 from models import Attributevalue
 from models import QuestionDB
 import random, math
-questions = QuestionDB.objects.all()
+#questions = QuestionDB.objects.all()
 attrList=Attributevalue.objects.all()
 actors=CharacterSet.objects.all()
 class DbFunctions(object):
     
     def initialQuestion(self):
-        return questions[0]
+        i=random.randint(0,5)
+        return i
    
     def loader(self,value,actList1,curr):
         chooseNext=curr
-        currQActList = getPossibleCharacter(curr,value)
+        currQActList = getPossibleCharacter(curr)
         for item in actList1:
 	  for thing in currQActList:
             if(item.CID==thing.CID):
@@ -25,15 +26,15 @@ class DbFunctions(object):
         initialQ = QuestionDB.objects.all()[best]
         return initialQ
 
-class AnswerGuess():
+class AnswerGuess(object):
     def guess(self,actList2):
-        maxvalue=-11
+        maxvalue=-99
         ansID=0
         for item in actList2:
-            if(maxvalue ==-11):
+            if(maxvalue ==-99):
                 ansID=item.Cid
                 maxvalue=item.entropy
-            elif (maxvalue<item.entropy):
+            elif (maxvalue>item.entropy):
                 ansID=item.Cid
                 maxvalue=item.entropy
             else:
@@ -49,13 +50,12 @@ def getCharacters():
     return names
 #returns all possible characters in Attribute List for given Question
 
-def getPossibleCharacter(quesId,option):
+def getPossibleCharacter(quesId,option): 
     posActList = []
     for item in attrList:
-        if (item.QID == quesId) and (item.Opvalue==option):
+        if (item.QID == quesId):
             posActList.append(item)
     return posActList
-
 def decisionTree():
     
     """

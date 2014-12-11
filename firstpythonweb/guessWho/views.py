@@ -25,16 +25,15 @@ def home(request):
 # intial Question loading
 
 def startgame(request):
-    question = DbFunctions().initialQuestion() #type here code for selecting a random question
+    questionId = DbFunctions().initialQuestion() #type here code for selecting a random question
     if not 'initial_questions' in request.session :
-       request.session['initial_questions'] = question
-    currId=question.QID
-    request.session['current_question'] = currId 
+       request.session['initial_questions'] = questionId
+    request.session['current_question'] = questionId 
     request.session['Qcount'] += 1
-    request.session['initActorYes'] = getPossibleCharacter(currId,1) 
-    request.session['initActorNo'] = getPossibleCharacter(currId,-1)
-    request.session['initActorUnk'] =getPossibleCharacter(currId,0)
-    return render_to_response("qstatic.html", {'QAsk':question,'counter':request.session['Qcount']}, context_instance=RequestContext(request))
+    request.session['initActorYes'] = getPossibleCharacter(questionId,1) 
+    request.session['initActorNo'] = getPossibleCharacter(questionId,-1)
+    request.session['initActorUnk'] =getPossibleCharacter(questionId,0)
+    return render_to_response("qstatic.html", {'QAsk':DbFunctions().AskQuestion(questionId),'counter':request.session['Qcount']}, context_instance=RequestContext(request))
 
 # choosing the next question      
 def guessWho(request):
@@ -43,13 +42,12 @@ def guessWho(request):
         if key in request.POST:
             request.session['Qcount'] += 1
             curr=request.session['current_question']
-            
             if key == 'Yes':
                actList = request.session['initActorYes']
             elif key== 'No':
                actList = request.session['initActorNo']
             else:
-               actlist = request.session['initActorUnk'] 
+               actList = request.session['initActorUnk'] 
             responseString,actList = DbFunctions().loader(value,actList,curr)
 
    if request.session['Qcount'] < 20 and responseString not in request.session['Characters']:
@@ -57,9 +55,9 @@ def guessWho(request):
        if key == 'Yes':
            request.session['initActorYes']=actList
        elif key== 'No':
-           actList = request.session['initActorNo']
+           request.session['initActorNo']=actList
        else:
-           actlist = request.session['initActorUnk']
+           request.session['initActorUnk']=actList
        return render_to_response("qstatic.html", {'QAsk':responseString,'counter':request.session['Qcount']}, context_instance=RequestContext(request))
    else :
        responseStr = AnswerGuess().guess(actList)
